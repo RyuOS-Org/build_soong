@@ -61,6 +61,13 @@ var (
 		Command:     "unzip -p $in $extract_apk > $out",
 		Description: "Extract specific sub apk",
 	}, "extract_apk")
+
+	gzipRule = pctx.AndroidStaticRule("gzip",
+		blueprint.RuleParams{
+			Command:     "prebuilts/build-tools/path/linux-x86/gzip -9 -c $in > $out",
+			CommandDeps: []string{"prebuilts/build-tools/path/linux-x86/gzip"},
+			Description: "gzip $out",
+		})
 )
 
 func RegisterAppImportBuildComponents(ctx android.RegistrationContext) {
@@ -162,6 +169,9 @@ type AndroidAppImportProperties struct {
 
 	// Path of extracted apk which is extracted from prebuilt apk. Use this extracted to import.
 	Extract_apk *string
+
+	// Compress the output APK using gzip. Defaults to false.
+	Compress_apk proptools.Configurable[bool] `android:"arch_variant,replace_instead_of_append"`
 }
 
 func (a *AndroidAppImport) IsInstallable() bool {
