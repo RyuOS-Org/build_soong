@@ -1003,8 +1003,8 @@ func createVariableProperties(moduleTypeProps []interface{}, productVariables in
 func createVariablePropertiesType(moduleTypeProps []interface{}, productVariables interface{}) reflect.Type {
 	typ, _ := proptools.FilterPropertyStruct(reflect.TypeOf(productVariables),
 		func(field reflect.StructField, prefix string) (bool, reflect.StructField) {
-			if strings.HasPrefix(prefix, "Product_variables.LessAOSP") {
-				// Convert Product_variables.LessAOSP.Foo to LessAOSP.Foo
+			if strings.HasPrefix(prefix, "Product_variables.RyuOS") {
+				// Convert Product_variables.RyuOS.Foo to RyuOS.Foo
 				_, prefix = splitPrefix(prefix)
 			}
 

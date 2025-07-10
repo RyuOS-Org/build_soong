@@ -154,8 +154,9 @@ var BannerVars = []string{
 	"PLATFORM_VERSION_CODENAME",
 	"PLATFORM_VERSION",
 	"PRODUCT_SOURCE_ROOT_DIRS",
-	"LESSAOSP_VERSION",
-	"LESSAOSP_BUILD_TYPE",
+	"RYUOS_VERSION",
+	"RYUOS_BUILD_TYPE",
+	"RYUOS_MAINTAINER",
 	"TARGET_PRODUCT",
 	"TARGET_BUILD_VARIANT",
 	"TARGET_BUILD_APPS",
@@ -176,6 +177,14 @@ var BannerVars = []string{
 
 func Banner(config Config, make_vars map[string]string) string {
 	b := &bytes.Buffer{}
+
+	fmt.Fprintln(b, "                                              ")
+	fmt.Fprintln(b, " ██████╗ ██╗   ██╗██╗   ██╗       ██████╗ ███████╗ ")
+	fmt.Fprintln(b, " ██╔══██╗╚██╗ ██╔╝██║   ██║      ██╔═══██╗██╔════╝ ")
+	fmt.Fprintln(b, " ██████╔╝ ╚████╔╝ ██║   ██║█████╗██║   ██║███████ ")
+	fmt.Fprintln(b, " ██╔══██╗  ╚██╔╝  ██║   ██║╚════╝██║   ██║╚════██║ ")
+	fmt.Fprintln(b, " ██║  ██║   ██║   ╚██████╔╝      ╚██████╔╝███████║ ")
+	fmt.Fprintln(b, " ╚═╝  ╚═╝   ╚═╝    ╚═════╝        ╚═════╝ ╚══════╝ ")
 
 	fmt.Fprintln(b, "============================================")
 	for _, name := range BannerVars {

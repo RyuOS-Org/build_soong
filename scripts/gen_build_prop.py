@@ -118,7 +118,7 @@ def parse_args():
   if args.build_thumbprint_file:
     config["BuildThumbprint"] = args.build_thumbprint_file.read().strip()
 
-  config["LessAOSPDevice"] = config["DeviceName"]
+  config["RyuOSDevice"] = config["DeviceName"]
 
   if config["BuildNumber"].startswith("eng."):
     config["BuildNumber"] = config["DateUtc"]
@@ -259,7 +259,7 @@ def generate_build_info(args):
   # flavor (via a dedicated lunch config for example).
   print(f"ro.build.flavor={config['BuildFlavor']}")
 
-  print(f"ro.lessaosp.device={config['LessAOSPDevice']}")
+  print(f"ro.ryuos.device={config['RyuOSDevice']}")
 
   print(f"persist.sys.pihooks_FINGERPRINT={config['PihooksGmsFp']}")
   print(f"persist.sys.pihooks_MODEL={config['PihooksGmsModel']}")
